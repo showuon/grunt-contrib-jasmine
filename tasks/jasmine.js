@@ -165,6 +165,7 @@ module.exports = function(grunt) {
 
     try {
       await setup(options, dispatcher, page);
+      page.setDefaultNavigationTimeout(60000);
       await page.goto(file, { waitUntil: 'domcontentloaded' });
 
       await jasminePromise;
